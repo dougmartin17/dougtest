@@ -1,0 +1,149 @@
+<html>
+<head><title>Clackers</title>
+<script>
+var dice1 = 0, dice2 = 0;
+
+var runningCount = 0;
+function newGame()
+{
+
+}
+
+function newGamePageLoad()
+{
+	//alert("Welcome, Starting a new game.\nDice are being rolled for you...");
+	rollBothDice();
+}
+
+function confirmSelection (t)
+{
+	tiles = window.document.getElementById("tiles").getElementsByTagName("div");
+	for(var i=0; i<tiles.length; i++)
+	{
+		if(tiles[i].className == 'selected')
+		{
+			tiles[i].className = 'used';
+		}
+	}
+	runningCount = 0;
+	t.style.visibility = 'hidden';
+}
+
+function selectTile (t)
+{
+	if (t.className == 'used')
+	{
+		exit;
+	}
+	if (t.className == 'selected')
+	{
+		runningCount = runningCount - parseInt(t.innerHTML);
+		t.className = '';
+	}
+	else
+	{
+		runningCount = runningCount + parseInt(t.innerHTML);
+		t.className = 'selected';
+	}
+	window.document.getElementById("runningCount").innerHTML = runningCount;
+	if (runningCount== dice1+dice2)
+	{
+		window.document.getElementById("confirm").style.visibility = "visible";
+	}
+	else
+	{
+		window.document.getElementById("confirm").style.visibility = "hidden";
+	}
+
+}
+
+function rollBothDice (t)
+{
+	var num1=Math.floor(Math.random()*6)+1;
+	var num2=Math.floor(Math.random()*6)+1;
+	window.document.getElementById("die1").innerHTML = num1;
+	window.document.getElementById("die2").innerHTML = num2;
+	window.document.getElementById("total").innerHTML = num1+num2;
+	dice1 = num1;
+	dice2 = num2;
+}
+
+function rollOneDie(t)
+{
+	var num1=Math.floor(Math.random()*6)+1;
+	window.document.getElementById("die1").innerHTML = num1;
+	window.document.getElementById("die2").innerHTML = "X";
+	window.document.getElementById("total").innerHTML = num1;
+
+	t.disabled = true;
+
+	dice1 = num1;
+	dice2 = undef;
+}
+
+</script>
+<style>
+div#tiles div.selected {
+	background-color: yellow;
+	}
+
+div#tiles div.used {
+	background-color: red;
+	cursor: not-allowed;
+	}
+
+div#tiles div {
+	font-size: 36px;
+	border: 2px solid black;
+	width: 100px;
+	float: left;
+	margin: 2px;
+	text-align: center;
+	cursor: pointer;
+	}
+
+div.dice {
+	margin: 5px;
+	float: left;
+	font-size: 38px;
+	border: 3px solid red;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	}
+
+button#rollDice {
+	float: bottom;
+	}
+</style>
+</head>
+<body onload="newGamePageLoad();">
+<button id='newgame' onclick="newGame(this)">Start a New Game</button>
+<hr>
+<div id="tiles">
+<div onclick="selectTile(this)">1</div>
+<div onclick="selectTile(this)">2</div>
+<div onclick="selectTile(this)">3</div>
+<div onclick="selectTile(this)">4</div>
+<div onclick="selectTile(this)">5</div>
+<div onclick="selectTile(this)">6</div>
+<div onclick="selectTile(this)">7</div>
+<div onclick="selectTile(this)">8</div>
+<div onclick="selectTile(this)">9</div>
+</div>
+Running Count: <span id="runningCount"></span><br>
+<button id="confirm" style="visibility:hidden;" onclick="confirmSelection(this);">Confirm selection</button>
+<br><br><br><hr>
+
+<div id="diceContainer">
+	<div id="die1" class="dice">X</div>
+	<div id="die2" class="dice">X</div>
+	Total of dice: <span id="total">7</span>
+	<br><br><br>
+	<button class="rollDice" onclick="rollBothDice(this)">Roll Both Dice</button>
+	<button class="rollDice" onclick="rollOneDie(this)">Roll One Die</button>
+</div>
+
+<button onclick="alert(dice1)">test me </button>
+</body>
+</html>
