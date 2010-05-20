@@ -46,3 +46,22 @@ foreach my $r (@rRows)
    
    
 #$we = $wTree->look_down(sub { $_[0]->tag() eq 'meta' and $_[0]->attr('name') =~ /Description/i }
+
+
+
+####DATABASE connect/stuff
+#!/usr/bin/perl
+
+# PERL MODULE
+use Mysql;
+
+# CONFIG VARIABLES
+$host = "localhost";
+$database = "playlistproject";
+$tablename = "playlists";
+#i've created this user in the db, not sure on permissions.
+$user = "dbuser";
+$pw = "dbuser_pw";
+
+# PERL MYSQL CONNECT
+#$connect = Mysql->connect($host, $database, $user, $pw);
