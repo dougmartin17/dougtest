@@ -50,18 +50,40 @@ foreach my $r (@rRows)
 
 
 ####DATABASE connect/stuff
-#!/usr/bin/perl
 
 # PERL MODULE
-use Mysql;
+use DBI;
 
 # CONFIG VARIABLES
-$host = "localhost";
-$database = "playlistproject";
-$tablename = "playlists";
+my $host = "192.168.1.69";
+my $port = 3306;
+my $database = "playlistproject";
+my $tablename = "playlists";
 #i've created this user in the db, not sure on permissions.
-$user = "dbuser";
-$pw = "dbuser_pw";
+my $user = "dbuser";
+my $pw = "dbuser_pw";
+$user='root';
+$pw='black';
 
 # PERL MYSQL CONNECT
 #$connect = Mysql->connect($host, $database, $user, $pw);
+my $dbh = DBI->connect("dbi:mysql:database=$database; host=$host;", $user,$pw)
+    or die "Connecting from Perl to MySQL database failed: $DBI::errstr";
+# Prepare the SQL statement
+my $sth= $dbh->prepare("SELECT * from t_playlists;")
+  or die $DBI::errstr;
+
+# Send the statement to the server
+$sth->execute();
+
+my $numRows = $sth->rows;
+print "Rows returned: $numRows\n";
+
+my @row;
+while ( @row = $sth->fetchrow_array )
+{
+  print "@row\n";
+}
+
+# Close the connection
+$dbh->disconnect or die $DBI::errstr;
