@@ -25,6 +25,8 @@ $rTree->parse($rContent);
 
 my @rRows = $rTree->find('td');
 
+my $db = openDBconnection();
+
 foreach my $r (@rRows)
 {
    
@@ -47,20 +49,39 @@ foreach my $r (@rRows)
       print "converted lastplayed time: $newlp\n";
       print "Title: [$title]\n";
       print "\n";
+$band =~ s/'/\./g;
+$title =~ s/'/\./g;
+dbInsertData($db, $band, $title, $newlp);
    }
 } # end foreach my $r (@rRows)
+closeDBconnection($db);
    
    
    
 #$we = $wTree->look_down(sub { $_[0]->tag() eq 'meta' and $_[0]->attr('name') =~ /Description/i }
 
 ####let's try DB
-my $db = openDBconnection();
-runDBcommand($db);
-closeDBconnection($db);
+#my $db = openDBconnection();
+#runDBcommand($db);
+#closeDBconnection($db);
 ###end of db stuff
 
 ####DATABASE connect/stuff
+sub dbInsertData
+{
+   my ($dbh, $b, $t, $lp) = @_;
+print "[$lp]\n\n";
+      # Prepare the SQL statement
+my $cmd = "insert into t_playlists (bandname,songtitle,timestamp,station)
+			values('$b','$t','$lp','wbos');";
+print $cmd."\n";
+      my $sth= $dbh->prepare($cmd)
+      or return $DBI::errstr;
+   
+      # Send the statement to the server
+      $sth->execute() or return $DBI::errstr;
+
+}
 sub openDBconnection
 {
    # CONFIG VARIABLES
@@ -77,7 +98,7 @@ sub openDBconnection
 
    # PERL MYSQL CONNECT
    #$connect = Mysql->connect($host, $database, $user, $pw);
-   my $dbh = DBI->connect("dbi:mysql:$database:$host:$port;", $user,$pw)
+   my $dbh = DBI->connect("dbi:mysql:$database:host=:$host:port=$port;", $user,$pw)
     or die "Connecting from Perl to MySQL database failed: $DBI::errstr";
     
     return $dbh;
