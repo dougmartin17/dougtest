@@ -148,11 +148,18 @@ sub convertLastPlayed
    my $minutes = $5;
    my $ampm = $6;
    
-   if($ampm eq 'pm')
+   #all pms except for the noon hour needs to add 12, noon hour can stay.
+   if($ampm eq 'pm' && $hour > 12)
    {
       #convert to 24 hour clock
       $hour = $hour + 12;
    }
+   #handle the 12:45am scenario which needs to be 00:45.
+   if($ampm eq 'am' && $hour == 12)
+   {
+      $hour = 0;
+   }
+   
    
    
    my $newdate = sprintf("%4d-%02d-%02d %02d:%02d:00", $year,$month,$day,$hour,$minutes);
