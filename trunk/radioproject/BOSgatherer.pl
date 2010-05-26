@@ -149,7 +149,7 @@ sub convertLastPlayed
    my $ampm = $6;
    
    #all pms except for the noon hour needs to add 12, noon hour can stay.
-   if($ampm eq 'pm' && $hour > 12)
+   if($ampm eq 'pm' && $hour < 12)
    {
       #convert to 24 hour clock
       $hour = $hour + 12;
