@@ -1,0 +1,1431 @@
+<html>
+
+<style>
+div.used {text-decoration: line-through; background-color: #E56E94;}
+div.newSelection {background-color: #33FF33}
+span.selectable {cursor: pointer; background-color: #e8e8e8}
+</style>
+
+<script>
+function ResetToPerfectBracket()
+{
+resetTeams();
+	selectTeam('CHI');
+	selectTeam('OAK');
+	selectTeam('NWE');
+	selectTeam('ARI');
+	selectTeam('GB');
+	selectTeam('DET');
+	selectTeam('IND');
+
+} //End ResetToPerfectBracket
+
+
+function ResetToOneLossBracket()
+{
+resetTeams();
+	selectTeam('NYG');
+	selectTeam('PHI');
+	selectTeam('NWE');
+	selectTeam('WAS');
+	selectTeam('ATL');
+	selectTeam('BAL');
+	selectTeam('IND');
+
+} //End ResetToOneLossBracket
+
+function selectTeam (t)
+{
+	x=document.getElementsByName(t)
+	for (var i=0; i < x.length; i++)
+	{
+			if(x[i].className != 'newSelection')
+			{
+				x[i].setAttribute('class', 'used');
+			}
+	}
+}//end selectTeam
+
+function deselectTeam (t)
+{
+	elms = document.getElementsByTagName('div');
+
+	for (var i=0; i < elms.length; i++)
+	{
+		if(elms[i].getAttribute('name') == t)
+		{
+			elms[i].className = '';
+		}
+	}
+}//end deselectTeam
+
+function resetTeams()
+{
+	var allTeams = ['MIN', 'NO', 'ATL', 'PIT', 'CAR', 'NYG', 'DET',
+	'CHI', 'OAK', 'TEN', 'IND', 'HOU', 'DEN', 'JAC', 'MIA', 'BUF',
+	'CIN', 'NWE', 'CLE', 'TB', 'GB', 'PHI', 'SF', 'SEA', 'ARI',
+	'STL', 'DAL', 'WAS', 'BAL', 'NYJ', 'SD', 'KC'];
+
+	for (var i=0; i < allTeams.length; i++)
+	{
+		deselectTeam (allTeams[i]);
+
+	}
+
+} //end resetTeams
+
+function newChoice(t)
+{
+	if (t.className == 'used')
+	{
+		//do nothing for now.
+	}
+	else if (t.className != 'newSelection') //Not yet selected
+	{
+		t.className = 'newSelection';
+		selectTeam(t.getAttribute('name'));
+	}
+	else //undo selection
+	{
+		t.className = '';
+		deselectTeam(t.getAttribute('name'));
+	}
+}
+</script>
+<hr>
+<span class='selectable' onclick="ResetToPerfectBracket()">Perfect bracket</span> |
+<span class='selectable' onclick="ResetToOneLossBracket()">One-loss bracket</span> |
+<span class='selectable' onclick="resetTeams()">Reset bracket</span>
+<hr>
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#800000">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week One</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>September 9</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div> </td><td> <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div> </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div> </td><td> <div onclick="newChoice(this)" name='NYG'>New York Giants</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DET'>Detroit Lions</div> </td><td> <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div> </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div> </td><td> <div onclick="newChoice(this)" name='HOU'>Houston Texans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div> </td><td> <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div> </td><td> <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div> </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div> </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div> </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='SF'><div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div> </div></td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div> </td><td> <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 12</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div> </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>September 13</td><td> 7:00 p.m. </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div> </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>September 13</td><td> 10:15 p.m. </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div> </td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#00008B">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week Two</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div> </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div> </td><td> <div onclick="newChoice(this)" name='DET'>Detroit Lions</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div> </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div> </td><td> <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div> </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div> </td><td> <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div> </td><td> <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> [1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div> </td><td> <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div> </td><td> <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div> </td><td> <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div> </td><td> <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div> </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 4:15 p.m. </td><td>  <div onclick="newChoice(this)" name='HOU'>Houston Texans</div> </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div> </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 19</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='NYG'>New York Giants</div> </td><td> <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>September 20</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div> </td><td> <div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#800000">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week Three *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 1:00 p.m </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div> </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='NYG'>New York Giants</div> </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DET'>Detroit Lions</div> </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div> </td><td> <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div> </td><td> <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div> </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div> </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='SF'><div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div> </div></td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div> </td><td> <div onclick="newChoice(this)" name='HOU'>Houston Texans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div> </td><td> <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div> </td><td> <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div> </td><td> <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div> </td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div> </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>September 26</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div> </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>September 27</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div> </td><td> <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#00008B">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week Four</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div> </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DET'>Detroit Lions</div> </td><td>  <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div> </td><td> <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='SF'><div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div> </div></td><td> <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div> </td><td> <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td>1:00 p.m.  </td><td> <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div> </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div> </td><td>  <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div> </td><td> <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div> </td><td>  <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='HOU'>Houston Texans</div> </td><td>  <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div> </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div> </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 3</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div> </td><td>  <div onclick="newChoice(this)" name='NYG'>New York Giants</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>October 4</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div> </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#800000">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week Five *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='NYG'>New York Giants</div> </td><td> <div onclick="newChoice(this)" name='HOU'>Houston Texans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div> </td><td>  <div onclick="newChoice(this)" name='DET'>Detroit Lions</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div> </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div> </td><td> <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div> </td><td>  <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div> </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div> </td><td>  <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div> </td><td>  <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div> </td><td>  <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div> </td><td>  <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div> </td><td>  <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div> </td><td>  <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 10</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div> </td><td>  <div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>October 11</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div> </td><td>  <div onclick="newChoice(this)" name='NYJ'>New York Jets</div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#00008B">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week Six *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div> </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DET'>Detroit Lions</div> </td><td>  <div onclick="newChoice(this)" name='NYG'>New York Giants</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div> </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div> </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div> </td><td>  <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div> </td><td>  <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td>1:00 p.m.  </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div> </td><td>  <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div> </td><td>  <div onclick="newChoice(this)" name='HOU'>Houston Texans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div> </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div> </td><td>  <div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div> </td><td>  <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div> </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 17</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div> </td><td>  <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>October 18</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div> </td><td> <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#800000">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week Seven</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div> </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div> </td><td>  <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div> </td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div> </td><td>  <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div> </td><td>  <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div> </td><td>  <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div> </td><td>  <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='SF'><div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div> </div></td><td> <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div> </td><td>  <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div> </td><td>  <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div> </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div> </td><td>  <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 24</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div> </td><td> <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>October 25</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='NYG'>New York Giants</div> </td><td><div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#00008B">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week Eight *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div> </td><td> <div onclick="newChoice(this)" name='DET'>Detroit Lions</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div> </td><td>  <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div> </td><td>  <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div> </td><td> <div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div> </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div> </td><td>  <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div> </td><td>  <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div> </td><td>  <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div> </td><td>  <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div> </td><td>  <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div> </td><td>  <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>October 31</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div> </td><td>  <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>November 1</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='HOU'>Houston Texans</div> </td><td>  <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#800000">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week Nine *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div> </td><td><div onclick="newChoice(this)" name='DET'>Detroit Lions</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div> </td><td><div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div> </td><td><div onclick="newChoice(this)" name='HOU'>Houston Texans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div> </td><td>  <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div> </td><td>  <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div> </td><td>  <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div> </td><td>  <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div> </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='NYG'>New York Giants</div> </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 4:15 p.m. </td><td><div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div>  </td><td>  <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div> </td><td> <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 7</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div> </td><td>  <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>November 8</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div> </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#00008B">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week 10</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>November 11</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='DET'>Detroit Lions</div> </td><td> <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div> </td><td><div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div> </td><td><div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div> </td><td><div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div> </td><td>  <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div> </td><td>  <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='HOU'>Houston Texans</div> </td><td>  <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div> </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div> </td><td>  <div onclick="newChoice(this)" name='NYG'>New York Giants</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div> </td><td>  <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div> </td><td> <div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div> </td><td>  <div onclick="newChoice(this)" name='NYG'>New York Giants</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div> </td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 14</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div> </td><td>  <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>November 15</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div> </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div>
+</td></tr></table>
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#800000">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week 11 *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>November 18</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div> </td><td><div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div> </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DET'>Detroit Lions</div> </td><td>  <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div> </td><td>  <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div> </td><td>  <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='HOU'>Houston Texans</div> </td><td>  <div onclick="newChoice(this)" name='NYJ'>New York Jets</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div> </td><td>  <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div> </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div> </td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div> </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div> </td><td><div onclick="newChoice(this)" name='NO'>New Orleans Saints</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div> </td><td> <div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div> </td><td> <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div> </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 21</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div> </td><td> <div onclick="newChoice(this)" name='NYG'>New York Giants</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>November 22</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div> </td><td>  <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div>
+</td></tr></table>
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#00008B">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week 12 *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>November 25</td><td> 12:30 p.m. </td><td> <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div>  </td><td> <div onclick="newChoice(this)" name='DET'>Detroit Lions</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>November 25</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='NO'>New Orleans Saints</div> </td><td> <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>November 25</td><td>8:20 p.m.  </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div> </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div> </td><td><div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div> </td><td>  <div onclick="newChoice(this)" name='NYG'>New York Giants</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div> </td><td>  <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='GB'>Green Bay Packers</div> </td><td>  <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div> </td><td>  <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div> </td><td> <div onclick="newChoice(this)" name='HOU'>Houston Texans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div> </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 1:00 p.m. </td><td>  <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div></td><td>  <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div> </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 4:05 p.m. </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div> </td><td>  <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div> </td><td> <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>November 28</td><td> 8:20 p.m. </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div> </td><td>  <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>November 29</td><td> 8:30 p.m. </td><td> <div onclick="newChoice(this)" name='SF'><div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div> </div></td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div>
+</td></tr></table>
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#800000">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week 13</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>December 2</td><td>8:20  p.m.</td><td><div onclick="newChoice(this)" name='HOU'>Houston Texans</div></td><td><div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>1:00  p.m.</td><td><div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div></td><td><div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div></td><td><div onclick="newChoice(this)" name='GB'>Green Bay Packers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='DEN'>Denver Broncos</div></td><td><div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div></td><td><div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='CHI'>Chicago Bears</div></td><td><div onclick="newChoice(this)" name='DET'>Detroit Lions</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div></td><td><div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='WAS'>Washington Redskins</div></td><td><div onclick="newChoice(this)" name='NYG'>New York Giants</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='NO'>New Orleans Saints</div></td><td><div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div></td><td><div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>4:05 p.m.</td><td><div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div></td><td><div onclick="newChoice(this)" name='SD'>San Diego Chargers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>4:15 p.m.</td><td><div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div></td><td><div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>4:15 p.m.</td><td><div onclick="newChoice(this)" name='STL'>St. Louis Rams </div></td><td><div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>4:15 p.m.</td><td><div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div></td><td><div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 5</td><td>8:20 p.m.</td><td><div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div></td><td><div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>December 6</td><td>8:30 p.m.</td><td><div onclick="newChoice(this)" name='NYJ'>New York Jets</div></td><td><div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div>
+</td></tr></table>
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#00008B">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week 14 *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>December 9</td><td>8:20 p.m. </td><td><div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div></td><td><div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>1:00 p.m. </td><td><div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div></td><td><div onclick="newChoice(this)" name='WAS'>Washington Redskins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div></td><td><div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='NYG'>New York Giants</div></td><td><div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='GB'>Green Bay Packers</div></td><td><div onclick="newChoice(this)" name='DET'>Detroit Lions</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div></td><td><div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div></td><td><div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div></td><td><div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div></td><td><div onclick="newChoice(this)" name='CHI'>Chicago Bears</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>4:05 p.m.</td><td><div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div></td><td><div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>4:05 p.m.</td><td><div onclick="newChoice(this)" name='STL'>St. Louis Rams </div></td><td><div onclick="newChoice(this)" name='NO'>New Orleans Saints</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>4:15 p.m.</td><td><div onclick="newChoice(this)" name='DEN'>Denver Broncos</div></td><td><div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>4:15 p.m.</td><td><div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div></td><td><div onclick="newChoice(this)" name='NYJ'>New York Jets</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>4:15 p.m.</td><td><div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div></td><td><div onclick="newChoice(this)" name='SD'>San Diego Chargers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 12</td><td>8:20 p.m.</td><td><div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div></td><td><div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>December 13</td><td>8:30 p.m.</td><td><div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div></td><td><div onclick="newChoice(this)" name='HOU'>Houston Texans</div>
+</td></tr></table>
+
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#800000">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week 15 *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>December 16</td><td>8:20p.m.</td><td><div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div></td><td><div onclick="newChoice(this)" name='SD'>San Diego Chargers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00p.m.</td><td><div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div></td><td><div onclick="newChoice(this)" name='STL'>St. Louis Rams </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00 pm </td><td><div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div></td><td><div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div></td><td><div onclick="newChoice(this)" name='NYG'>New York Giants</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='DET'>Detroit Lions</div></td><td><div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div></td><td><div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div></td><td><div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='WAS'>Washington Redskins</div></td><td><div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div></td><td><div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='NO'>New Orleans Saints</div></td><td><div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='HOU'>Houston Texans</div></td><td><div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>4:05 p.m.</td><td><div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div></td><td><div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>4:15 p.m.</td><td><div onclick="newChoice(this)" name='NYJ'>New York Jets</div></td><td><div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>4:15 p.m.</td><td><div onclick="newChoice(this)" name='DEN'>Denver Broncos</div></td><td><div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 19</td><td>8:20 p.m.</td><td><div onclick="newChoice(this)" name='GB'>Green Bay Packers</div></td><td><div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>December 20</td><td>8:30 p.m.</td><td><div onclick="newChoice(this)" name='CHI'>Chicago Bears</div></td><td><div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div>
+</td></tr></table>
+
+
+
+<table cellpadding="3" border="1" class="wikitable">
+<tr bgcolor="#00008B">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week 16 *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Thursday
+</td><td>December 23</td><td>8:20 p.m.</td><td><div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div></td><td><div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Saturday
+</td><td>December 25</td><td>7:30 p.m.</td><td><div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div></td><td><div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div></td><td><div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div></td><td><div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div></td><td><div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div></td><td><div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div></td><td><div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div></td><td><div onclick="newChoice(this)" name='STL'>St. Louis Rams </div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='DET'>Detroit Lions</div></td><td><div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='WAS'>Washington Redskins</div></td><td><div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>1:00 p.m.</td><td><div onclick="newChoice(this)" name='NYJ'>New York Jets</div></td><td><div onclick="newChoice(this)" name='CHI'>Chicago Bears</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>4:05 p.m.</td><td><div onclick="newChoice(this)" name='HOU'>Houston Texans</div></td><td><div onclick="newChoice(this)" name='DEN'>Denver Broncos</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>4:05 p.m.</td><td><div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div></td><td><div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>4:15 p.m.</td><td><div onclick="newChoice(this)" name='NYG'>New York Giants</div></td><td><div onclick="newChoice(this)" name='GB'>Green Bay Packers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>December 26</td><td>8:20 p.m.</td><td><div onclick="newChoice(this)" name='SD'>San Diego Chargers</div></td><td><div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Monday
+</td><td>December 27</td><td>8:30 p.m.</td><td><div onclick="newChoice(this)" name='NO'>New Orleans Saints</div></td><td><div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div>
+</td></tr></table>
+
+<table cellpadding="3" border="1" class="wikitable">
+
+<tr bgcolor="#800000">
+<td colspan="8" align="center"> <font color="#F0F8FF"><b>NFL Week 17 *Double Pick*</b></font>
+</td></tr>
+<tr bgcolor="#efefef">
+<th>Day</th><th>Date</th><th>Time</th><th>Road Team</th><th>Home Team
+</th></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='PIT'>Pittsburgh Steelers</div> </td><td> <div onclick="newChoice(this)" name='CLE'>Cleveland Browns</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='NYG'>New York Giants</div> </td><td> <div onclick="newChoice(this)" name='WAS'>Washington Redskins</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='MIN'>Minnesota Vikings</div> </td><td>  <div onclick="newChoice(this)" name='DET'>Detroit Lions</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='TB'>Tampa Bay Buccaneers</div> </td><td><div onclick="newChoice(this)" name='NO'>New Orleans Saints</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CHI'>Chicago Bears</div> </td><td><div onclick="newChoice(this)" name='GB'>Green Bay Packers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='MIA'>Miami Dolphins</div> </td><td>  <div onclick="newChoice(this)" name='NWE'>NWE England Patriots</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CAR'>Carolina Panthers</div> </td><td>  <div onclick="newChoice(this)" name='ATL'>Atlanta Falcons</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td>1:00 p.m.  </td><td> <div onclick="newChoice(this)" name='OAK'>Oakland Raiders</div> </td><td>  <div onclick="newChoice(this)" name='KC'>Kansas City Chiefs</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='JAC'>Jacksonville Jaguars</div> </td><td>  <div onclick="newChoice(this)" name='HOU'>Houston Texans</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='BUF'>Buffalo Bills</div> </td><td> <div onclick="newChoice(this)" name='NYJ'>New York Jets</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='DAL'>Dallas Cowboys</div> </td><td> <div onclick="newChoice(this)" name='PHI'>Philadelphia Eagles</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='CIN'>Cincinnati Bengals</div> </td><td> <div onclick="newChoice(this)" name='BAL'>Baltimore Ravens</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 1:00 p.m. </td><td> <div onclick="newChoice(this)" name='TEN'>Tennessee Titans</div> </td><td> <div onclick="newChoice(this)" name='IND'>Indianapolis Colts</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='SD'>San Diego Chargers</div> </td><td> <div onclick="newChoice(this)" name='DEN'>Denver Broncos</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='ARI'>Arizona Cardinals </div> </td><td> <div onclick="newChoice(this)" name='SF'>San Francisco 49ers</div>
+</td></tr>
+<tr align="center">
+<td align="center"> Sunday
+</td><td>January 2</td><td> 4:15 p.m. </td><td> <div onclick="newChoice(this)" name='STL'>St. Louis Rams </div> </td><td> <div onclick="newChoice(this)" name='SEA'>Seattle Seahawks</div>
+</td></tr></table>
+</html>
