@@ -1,0 +1,1 @@
+A collection of smallish projects to get to know SVN and google code.
